@@ -1,0 +1,24 @@
+[
+  {
+      "caption": "Tools",
+      "mnemonic": "T",
+      "id": "tools",
+      "children":
+      [
+          {
+              "caption": "Tabstasher",
+              "id": "tabstasher",
+              "mnemonic": "B",
+              "children": 
+              [
+                {
+                  "caption": "stash current"
+                },
+                {
+                  "caption": "pop last"
+                }
+              ]
+          }
+      ]
+  }
+]

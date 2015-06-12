@@ -1,0 +1,4 @@
+[
+    {   "caption": "TabStasher: Stash opened files", "command":"tabstash"},
+    {   "caption": "TabStasher: Apply a stash", "command":"tabunstash"}
+]
