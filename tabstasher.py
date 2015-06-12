@@ -37,8 +37,39 @@ class TabunstashCommand(sublime_plugin.WindowCommand):
             self.window.show_quick_panel(array_of_stashes_names, self.on_done)
 
     def on_done(self, picked):
-        for stashedFile in self.array_of_stashes[picked]['files']:
-            self.window.open_file(stashedFile)
+        if picked >= 0:
+            for stashedFile in self.array_of_stashes[picked]['files']:
+                self.window.open_file(stashedFile)
+
+class TabpoplaststashCommand(sublime_plugin.WindowCommand):
+
+    def run(self):
+        default_settings = sublime.load_settings("Tabstasher.sublime-settings")
+        if default_settings.has('stashes'):
+            array_of_stashes = default_settings.get('stashes')
+            for stashedFile in array_of_stashes[-1]['files']:
+                self.window.open_file(stashedFile)
+            del array_of_stashes[-1]
+            default_settings.set('stashes',array_of_stashes)
+
+class TabpopstashCommand(sublime_plugin.WindowCommand):
+
+    def run(self):
+        self.default_settings = sublime.load_settings("Tabstasher.sublime-settings")
+        if self.default_settings.has('stashes'):
+            self.array_of_stashes = self.default_settings.get('stashes')
+            array_of_stashes_names = []
+            for stash in self.array_of_stashes:
+                array_of_stashes_names.append(stash['name'])
+            self.window.show_quick_panel(array_of_stashes_names, self.on_done)
+
+    def on_done(self, picked):
+        if picked >= 0:
+            for stashedFile in self.array_of_stashes[picked]['files']:
+                self.window.open_file(stashedFile)
+            del self.array_of_stashes[picked]
+            self.default_settings.set('stashes',self.array_of_stashes)
+
 
 class TabdeletestashCommand(sublime_plugin.WindowCommand):
 
@@ -52,8 +83,9 @@ class TabdeletestashCommand(sublime_plugin.WindowCommand):
             self.window.show_quick_panel(array_of_stashes_names, self.on_done)
 
     def on_done(self, picked):
-        del self.array_of_stashes[picked]
-        self.default_settings.set('stashes',self.array_of_stashes)
+        if picked >= 0:
+            del self.array_of_stashes[picked]
+            self.default_settings.set('stashes',self.array_of_stashes)
 
 class TabclearstashCommand(sublime_plugin.WindowCommand):
 

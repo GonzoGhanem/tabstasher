@@ -1,24 +1,30 @@
 [
-  {
-      "caption": "Tools",
-      "mnemonic": "T",
-      "id": "tools",
-      "children":
-      [
-          {
-              "caption": "Tabstasher",
-              "id": "tabstasher",
-              "mnemonic": "B",
-              "children": 
-              [
-                {
-                  "caption": "stash current"
-                },
-                {
-                  "caption": "pop last"
-                }
-              ]
-          }
-      ]
-  }
+{
+"caption": "Tools",
+"mnemonic": "T",
+"id": "tools",
+"children":
+[
+{
+"caption": "Tabstasher",
+"id": "tabstasher",
+"mnemonic": "B",
+"children": 
+[
+{
+"caption": "Stash current session",
+"command": "tabstash"
+},
+{
+"caption": "Aplly stash",
+"command": "tabunstash"
+},
+{
+"caption": "Clear all stash",
+"command": "tabclearstash"
+}
+]
+}
+]
+}
 ]

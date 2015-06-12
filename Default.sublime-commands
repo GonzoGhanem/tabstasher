@@ -1,6 +1,25 @@
 [
-    {   "caption": "TabStasher: Stash opened files", "command":"tabstash"},
-    {   "caption": "TabStasher: Apply a stash", "command":"tabunstash"},
-    {   "caption": "TabStasher: Delete a stash", "command":"tabdeletestash"},
-    {   "caption": "TabStasher: Clear all stashes", "command":"tabclearstash"}
+    {   
+        "caption": "TabStasher: Apply a stash from list",
+        "command":"tabunstash"
+    },
+    {   
+        "caption": "TabStasher: Clear all stashes", 
+        "command":"tabclearstash"
+    },
+    {   
+        "caption": "TabStasher: Delete a stash", 
+        "command":"tabdeletestash"
+    },
+    {   
+        "caption": "TabStasher: Stash pop from list", 
+        "command":"tabpopstash"
+    },
+    {   
+        "caption": "TabStasher: Stash pop last", 
+        "command":"tabpoplaststash"
+    },
+    {   
+        "caption": "TabStasher: Stash opened files", "command":"tabstash"
+    }
 ]
