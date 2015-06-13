@@ -38,6 +38,7 @@ class TabunstashCommand(sublime_plugin.WindowCommand):
 
     def on_done(self, picked):
         if picked >= 0:
+            self.window.run_command('close_all')
             for stashedFile in self.array_of_stashes[picked]['files']:
                 self.window.open_file(stashedFile)
 
@@ -46,6 +47,7 @@ class TabpoplaststashCommand(sublime_plugin.WindowCommand):
     def run(self):
         default_settings = sublime.load_settings("Tabstasher.sublime-settings")
         if default_settings.has('stashes'):
+            self.window.run_command('close_all')
             array_of_stashes = default_settings.get('stashes')
             for stashedFile in array_of_stashes[-1]['files']:
                 self.window.open_file(stashedFile)
@@ -65,6 +67,7 @@ class TabpopstashCommand(sublime_plugin.WindowCommand):
 
     def on_done(self, picked):
         if picked >= 0:
+            self.window.run_command('close_all')
             for stashedFile in self.array_of_stashes[picked]['files']:
                 self.window.open_file(stashedFile)
             del self.array_of_stashes[picked]
