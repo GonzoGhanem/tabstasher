@@ -1,5 +1,5 @@
 import sublime, sublime_plugin
-import re, os, os.path
+import re, os, os.path, subprocess
 
 class TabstashCommand(sublime_plugin.WindowCommand):
 
@@ -23,6 +23,7 @@ class TabstashCommand(sublime_plugin.WindowCommand):
         default_stashes = default_settings.get('stashes')
         default_stashes.append(self.new_stash_obj)
         default_settings.set('stashes',default_stashes)
+        subprocess.call('git stash save tabstasher' + stash, shell=True)
         self.window.run_command('close_all')
 
 class TabunstashCommand(sublime_plugin.WindowCommand):
@@ -41,6 +42,7 @@ class TabunstashCommand(sublime_plugin.WindowCommand):
             self.window.run_command('close_all')
             for stashedFile in self.array_of_stashes[picked]['files']:
                 self.window.open_file(stashedFile)
+            subprocess.call('git stash apply --tabstasher' + stash, shell=True)
 
 class TabpoplaststashCommand(sublime_plugin.WindowCommand):
 
