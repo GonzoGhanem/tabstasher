@@ -42,7 +42,7 @@ class TabunstashCommand(sublime_plugin.WindowCommand):
             self.window.run_command('close_all')
             for stashedFile in self.array_of_stashes[picked]['files']:
                 self.window.open_file(stashedFile)
-            subprocess.call('git stash apply --tabstasher' + stash, shell=True)
+            subprocess.call('git stash apply --tabstasher' + self.array_of_stashes[picked]['name'], shell=True)
 
 class TabpoplaststashCommand(sublime_plugin.WindowCommand):
 
