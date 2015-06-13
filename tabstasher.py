@@ -91,6 +91,7 @@ class TabdeletestashCommand(sublime_plugin.WindowCommand):
 
     def on_done(self, picked):
         if picked >= 0:
+            subprocess.call('git stash drop --tabstasher'+self.array_of_stashes[picked]['name'], shell=True)
             del self.array_of_stashes[picked]
             self.default_settings.set('stashes',self.array_of_stashes)
 
@@ -99,4 +100,7 @@ class TabclearstashCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.default_settings = sublime.load_settings("Tabstasher.sublime-settings")
         if self.default_settings.has('stashes'):
+            stashes = self.default_settings.get('stashes')
+            for stash in stashes:
+                subprocess.call('git stash drop --tabstasher'+stash['name'], shell=True)
             self.default_settings.erase('stashes')
