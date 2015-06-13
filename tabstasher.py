@@ -53,6 +53,7 @@ class TabpoplaststashCommand(sublime_plugin.WindowCommand):
             array_of_stashes = default_settings.get('stashes')
             for stashedFile in array_of_stashes[-1]['files']:
                 self.window.open_file(stashedFile)
+            subprocess.run('git stash pop --tabstasher'+self.array_of_stashes[-1]['name'], shell=True)
             del array_of_stashes[-1]
             default_settings.set('stashes',array_of_stashes)
 
@@ -72,6 +73,7 @@ class TabpopstashCommand(sublime_plugin.WindowCommand):
             self.window.run_command('close_all')
             for stashedFile in self.array_of_stashes[picked]['files']:
                 self.window.open_file(stashedFile)
+            subprocess.run('git stash pop --tabstasher'+self.array_of_stashes[picked]['name'], shell=True)
             del self.array_of_stashes[picked]
             self.default_settings.set('stashes',self.array_of_stashes)
 
