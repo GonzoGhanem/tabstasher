@@ -1,6 +1,6 @@
 [
     {   
-        "caption": "TabStasher: Apply a stash from list",
+        "caption": "TabStasher: Stash apply from list",
         "command":"tabunstash"
     },
     {   
