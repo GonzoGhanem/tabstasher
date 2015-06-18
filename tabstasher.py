@@ -126,8 +126,8 @@ class TabclearstashCommand(sublime_plugin.WindowCommand):
 class TabsetgitCommand(sublime_plugin.WindowCommand):
 
     def run(self):
-        self.window.show_quick_panel(['No', 'Yes'], self.save_git_setting)
+        self.window.show_quick_panel(['Yes', 'No'], self.save_git_setting)
 
     def save_git_setting(self, option):
         default_settings = sublime.load_settings("Tabstasher.sublime-settings")
-        default_settings.set('git',option)
+        default_settings.set('git',not option)
