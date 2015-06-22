@@ -1,4 +1,4 @@
-# Sublime Tabstasher 0.1-alpha
+# Sublime Tabstasher 0.2-alpha
 
 Tabstasher will allow you to stash the current opened tabs under a common name. You can later untash either by apply or pop methods, like the git stash does, and reopen the tab sessions.
 
@@ -33,6 +33,9 @@ Access all available commands by opening command palette (cmd + shift + p) and t
 - **Clear all stashes:** Command will remove all saved stashes in the list of stashes.
 
 > NOTE: Any apply/pop command, will Close current tabs opened before opening the stashed tabs.
+
+## Added git support on v0.2
+Press cmd + shift + p and search for "Tabstasher: is this a git repo??" option. If set as Yes, tabstasher will also create a git stash using the same stash name provided by the user when stashing opened tabs. Same will happen when doing stash pop/apply commands and delete or clear.
 
 ## License
 * MIT License
