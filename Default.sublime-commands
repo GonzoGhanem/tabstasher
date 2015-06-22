@@ -1,4 +1,8 @@
-[
+[   
+    {
+        "caption": "Tabstasher: is this a git repo??",
+        "command": "tabsetgit"
+    },
     {   
         "caption": "TabStasher: Stash apply from list",
         "command":"tabunstash"
